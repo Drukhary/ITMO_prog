@@ -115,3 +115,11 @@ def indexRender(request):
     return render(request, 'index.html', {})
 def ITMO_University(request):
     return render(request, 'universityInfo.html', dict_ITMO)
+def disc(request):
+    return render(request, 'disciplineInfo.html', dict_disc)
+def group(request):
+    return render(request, 'groupsInfo.html', dict_group)
+def deps(request):
+    return render(request, 'departamentsInfo.html', dict_deps)
+def ITMO_structure(request):
+    return render(request, 'universityStructure.html', dict_uni)

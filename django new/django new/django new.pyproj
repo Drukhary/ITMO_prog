@@ -55,8 +55,13 @@
     <Folder Include="django_new\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\departamentsInfo.html" />
+    <Content Include="app\templates\departmentsInfo.html" />
+    <Content Include="app\templates\disciplineInfo.html" />
+    <Content Include="app\templates\groupsInfo.html" />
     <Content Include="app\templates\index.html" />
     <Content Include="app\templates\universityInfo.html" />
+    <Content Include="app\templates\universityStructure.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

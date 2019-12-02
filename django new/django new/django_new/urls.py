@@ -15,5 +15,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('hello', views.indexRender, name='indexRender'),
     path('ITMO', views.ITMO_University, name='ITMO'),
+    path('discipline', views.disc, name='discipline'),
+    path('group', views.group, name='group'),
+    path('departaments', views.deps, name='departaments'),
+    path('structureITMO', views.ITMO_structure, name='ITMOstructure')
     
 ]
