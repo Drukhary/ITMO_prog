@@ -14,5 +14,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('hello', views.indexRender, name='indexRender'),
+    path('ITMO', views.ITMO_University, name='ITMO'),
     
 ]
