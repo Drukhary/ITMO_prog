@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\templates\departamentsInfo.html" />
-    <Content Include="app\templates\departmentsInfo.html" />
     <Content Include="app\templates\disciplineInfo.html" />
     <Content Include="app\templates\groupsInfo.html" />
     <Content Include="app\templates\index.html" />

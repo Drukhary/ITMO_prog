@@ -38,6 +38,9 @@ with open("json_data.json", 'r') as read_file:
 
     meg_name=data['scintific_and_educational'][0]['name']
 
+    megITMO = {'meg_id': meg_id,
+               'meg_name':meg_name}
+
     dep_amount = 0
     for i in data['scintific_and_educational']:
         dep_amount += len(i['departments'])
@@ -93,6 +96,7 @@ with open("json_data.json", 'r') as read_file:
 
     
     dict_uni = {'administrative': administrative}
+    dict_uni.update(megITMO)
  
     dict_uni.update(dict_deps)
     
