@@ -34,12 +34,17 @@ with open("json_data.json", 'r') as read_file:
         if i['name'].find("Мегафакультет") != -1:
             mf_amount += 1
 
-    
+    meg_id= data['scintific_and_educational'][0]['id']
+
+    meg_name=data['scintific_and_educational'][0]['name']
+
     dep_amount = 0
     for i in data['scintific_and_educational']:
         dep_amount += len(i['departments'])
 
+
     
+
     edp_id = data['scintific_and_educational'][0]['departments'][0]['educational_programs'][0]['id']
 
     
@@ -63,6 +68,7 @@ with open("json_data.json", 'r') as read_file:
     
     deps = data['scintific_and_educational'][0]['departments']
 
+
     
     dict_ITMO = {'name': name, 'head': [head_name, head_surname],
             'adress': {'index': index, 'city': city, 'adress': adress},
@@ -72,7 +78,8 @@ with open("json_data.json", 'r') as read_file:
             'dep_amount': dep_amount}
 
     
-    dict_disc = {'edp_id': edp_id,
+    dict_disc = {
+                 'edp_id': edp_id,
                  'edp_name': edp_name,
                  'dis_name': dis_name,
                  'year_of_study': year_of_study,
@@ -86,7 +93,9 @@ with open("json_data.json", 'r') as read_file:
 
     
     dict_uni = {'administrative': administrative}
+ 
     dict_uni.update(dict_deps)
+    
     dict_uni.update(dict_ITMO)
 
 
