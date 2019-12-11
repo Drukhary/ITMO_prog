@@ -18,6 +18,9 @@ def home(request):
         }
     )
 
+def proba(request):
+    return render(request, 'proba.html', {})
+
 def contact(request):
     """Renders the contact page."""
     assert isinstance(request, HttpRequest)
