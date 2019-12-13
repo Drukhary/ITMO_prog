@@ -87,7 +87,7 @@ int main()
     gr1957.addStudent(student06);
 
     int k = gr1957.getSize();
-    gr1957.GroupSort();
+    //gr1957.GroupSort();
     cout << "В группе " << gr1957.getName() << " " << k << " ст." << endl;
     gr1957.GroupOut();
     //gr1957.delStudent(student04);
