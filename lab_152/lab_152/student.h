@@ -57,3 +57,13 @@ private:
     IdCard* iCard;
 
 };
+
+class compareStudent
+{
+public:
+    bool operator() (const Student* ptrSt1, const Student*
+        ptrSt2) const
+    {
+        return *ptrSt1 < *ptrSt2;
+    }
+};

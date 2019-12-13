@@ -31,31 +31,27 @@ int Group::getSize()
 	return masSt.size();
 }
 
-void Group::addStudent(Student newStudent)
+void Group::addStudent(Student* newStudent)
 {
-	masSt.push_back(newStudent);
+	masSt.insert(newStudent);
+}
+void Group::delStudent(Student* oldStudent)
+{
+	masSt.erase(oldStudent);
 }
 
-void Group::delStudent(Student oldStudent)
-{
-	masSt.remove(oldStudent);
-}
-
-void Group::GroupSort()
-{
-	masSt.sort();
-}
 
 void Group::GroupOut()
 {
 	iter = masSt.begin();
 	while (iter != masSt.end())
-		(iter++)->display();
+		(*iter++)->display();
 }
 
-Student Group::findStudent(string searchName, string searchLastName, IdCard* ID)
+Student* Group::findStudent(string searchName, string searchLastName, IdCard* ID)
 {
-	Student temp(searchName, searchLastName, ID);
-	iter = find(masSt.begin(), masSt.end(), temp);
-	return(*iter);
+	Student* temp = new Student(searchName, searchLastName, ID);
+	iter = masSt.lower_bound(temp);
+	delete temp;
+	return (*iter);
 }

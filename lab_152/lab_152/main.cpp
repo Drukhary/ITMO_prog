@@ -80,11 +80,11 @@ int main()
 
     Group gr1957("1957");
 
-    gr1957.addStudent(*student02);
-    gr1957.addStudent(student03);
-    gr1957.addStudent(student04);
-    gr1957.addStudent(student05);
-    gr1957.addStudent(student06);
+    gr1957.addStudent(student02);
+    gr1957.addStudent(&student03);
+    gr1957.addStudent(&student04);
+    gr1957.addStudent(&student05);
+    gr1957.addStudent(&student06);
 
     int k = gr1957.getSize();
     //gr1957.GroupSort();
