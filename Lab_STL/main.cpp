@@ -58,8 +58,8 @@ SetConsoleCP(1251);
     // Сохраняем средний балл в объект класса Student
     student02->set_average_score(average_score);
 
-	//IdCard* card = new IdCard(123);
-	//student02->setIdCard(*card);
+	IdCard* card = new IdCard(123);
+	student02->setIdCard(*card);
 	
     // Выводим данные по студенту
     cout << "Average ball for " << student02->get_name() << " "
