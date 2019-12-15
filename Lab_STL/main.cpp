@@ -16,9 +16,8 @@ SetConsoleCP(1251);
     string name;
     string last_name;
 	IdCard* idc = new IdCard(123456, "Базовый");
-	IdCard* idc2 = new IdCard(654321, "Базовый");
-	//int id;
-	//string category;
+	int id;
+	string category;
 
     // Ввод имени с клавиатуры
     cout << "Name: ";
@@ -28,13 +27,12 @@ SetConsoleCP(1251);
     cout << "Last name: ";
     getline(cin, last_name);
 
-	//cout << "Category: ";
-	//getline(cin, category);
-	//idc->setCategory(category);
-
-	//cout << "IdCard :";
-	//cin >> id;
-	//idc->setNumber(id);
+	cout << "Category : ";
+	getline(cin, category);
+	idc->setCategory(category);
+	cout << "IdCard : ";
+	cin >> id;
+	idc->setNumber(id);
 
 	    // Передача параметров конструктору
     Student *student02 = new Student(name, last_name, idc);

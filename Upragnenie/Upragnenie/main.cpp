@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//void Files();
+string m;
 
 class File
 {
@@ -99,11 +99,11 @@ public:
 };
 
 
-string Security(string log, string pas)
+void Security(string log, string pas)
 {
 	string yourlog;
 	string yourpas;
-	int c;
+	char c;
 	string d;
 	cout << "Введите логин и пароль для продолжения" << endl;
 	cout << "Enter login: ";
@@ -112,7 +112,8 @@ string Security(string log, string pas)
 	cin >> yourpas;
 	if (log == yourlog && pas == yourpas)
 	{
-		d = "yes";
+		m = "yes";
+
 	}
 	else {
 		cout << "Wrong!" << endl;
@@ -120,11 +121,14 @@ string Security(string log, string pas)
 		cin >> c;
 		if (c == 'y')
 			Security(log, pas);
-		else d = "no";
+		else {
+			m = "no";
+		}
 	}
-	return d;
+	
 
 }
+
 
 
 int main()
@@ -193,11 +197,10 @@ int main()
 	//yourOS->displaywithUser();
 	//cout << endl;
 
-	string d="";
 	cout << endl;
-	d = Security(login, password);
+	Security(login, password);
 
-	if (d == "yes")
+	if (m == "yes")
 	{
 		File* pubarr[100];
 		int n = 0;
@@ -225,14 +228,7 @@ int main()
 			cout << "Продолжать((у / n) ? ";
 			cin >> choice;
 		} while (choice == "y" && n < 100);
-		//for (int j = 0; j < n; j++) //цикл по всем объектам
-		//{
-		//	cout << endl << "File №" << j + 1;
-		//	pubarr[j]->putdata(); //вывести данные о публикации
-		//	cout << endl;
-		//}
 		cout << endl;
-
 
 
 		cout << "Your computer:" << endl;
