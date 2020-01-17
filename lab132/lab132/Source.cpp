@@ -42,7 +42,7 @@ public:
 };class teacher : public human
 {
 private:
-	double time;
+	int time;
 public:
 	void getdata()
 	{
@@ -59,7 +59,7 @@ public:
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	human* pubarr[100];	int n = 1;
+	human* pubarr[100];	int n = 0;
 	char choice;
 	do
 	{
@@ -69,7 +69,8 @@ public:
 			pubarr[n] = new student;
 		else
 			pubarr[n] = new teacher;
-		pubarr[n++]->getdata();
+		pubarr[n]->getdata();
+		n++;
 		cout << "Продолжать((у / n) ? ";
 		cin >> choice;
 	} while (choice == 'y');	for (int j = 0; j < n; j++) //цикл по всем объектам

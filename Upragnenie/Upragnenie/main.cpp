@@ -4,6 +4,7 @@
 #include "OS.h"
 #include "Version.h"
 #include "User.h"
+#include "time.h"
 
 
 using namespace std;
@@ -181,10 +182,6 @@ int main()
 			yourVer = verLin2;
 	}
 	OS* yourOS = new OS(name, yourVer);
-
-	cout << "Your OC: ";
-	//yourOS->display();
-
 	string login;
 	string password;
 	cout << "Register your login and password" << endl;
@@ -194,8 +191,15 @@ int main()
 	cin >> password;
 	User* You = new User(login, password);
 	yourOS->setUser(You);
-	//yourOS->displaywithUser();
-	//cout << endl;
+	string time, data, country;
+	cout << "Введите время: ";
+	cin >> time;
+	cout << "Введите дату: ";
+	cin >> data;
+	cout << "Введите страну: ";
+	cin >> country;
+
+	Country* my = new Country(time, data, country);
 
 	cout << endl;
 	Security(login, password);
@@ -234,6 +238,11 @@ int main()
 		cout << "Your computer:" << endl;
 		yourOS->displaywithUser();
 		cout << endl;
+		my->get_full_data();
+		cout << endl;
+		my->get_c();
+		
+		cout << endl;
 		for (int j = 0; j < n; j++) //цикл по всем объектам
 		{
 			cout << endl << "File №" << j + 1;
@@ -245,8 +254,10 @@ int main()
 	{
 		cout << "Your computer:" << endl;
 		yourOS->displaywithUser();
+		my->get_full_data();
+		cout << endl;
+		my->get_c();
 	}
-
 
 	return 0;
 }

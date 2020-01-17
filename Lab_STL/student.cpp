@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "student.h"
-#include "Group.h"
 using namespace std;
 
 // Конструктор Student

@@ -28,6 +28,4 @@ private:
 	string name; // имя операционной системы
 	Version* Ver; //версия операционной системы
 	User* UserData;
-	//string login;
-	//string password;
 };

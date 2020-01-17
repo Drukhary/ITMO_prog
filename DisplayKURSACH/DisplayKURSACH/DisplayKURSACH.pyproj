@@ -5,6 +5,7 @@
     <Name>DisplayKURSACH</Name>
     <RootNamespace>DisplayKURSACH</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,6 +57,7 @@
     <Folder Include="DisplayKURSACH\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\Page1.html" />
     <Content Include="app\templates\app\proba.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

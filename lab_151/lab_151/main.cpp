@@ -17,9 +17,6 @@ int main()
     string last_name;
     IdCard* idc = new IdCard(123456, "Базовый");
     IdCard* idc2 = new IdCard(654321, "Базовый");
-    //int id;
-    //string category;
-
     // Ввод имени с клавиатуры
     cout << "Name: ";
     getline(cin, name);
@@ -27,14 +24,6 @@ int main()
     // Ввод фамилии
     cout << "Last name: ";
     getline(cin, last_name);
-
-    //cout << "Category: ";
-    //getline(cin, category);
-    //idc->setCategory(category);
-
-    //cout << "IdCard :";
-    //cin >> id;
-    //idc->setNumber(id);
 
         // Передача параметров конструктору
     Student* student02 = new Student(name, last_name, idc);
@@ -95,6 +84,6 @@ int main()
 
 
     // Удаление объекта student из памяти
-    //delete student02;
+    delete student02;
     return 0;
 }

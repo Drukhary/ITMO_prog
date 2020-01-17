@@ -4,15 +4,6 @@
 #include "Group.h"
 using namespace std;
 
-// Конструктор Student
-
-//Student::Student(string name, string last_name)
-//{
-//    Student::set_name(name);
-//    Student::set_last_name(last_name);
-//    Student::set_average_score(0);
-//}
-
 Student::Student(string name, string last_name, IdCard* id)
 {
     Student::set_name(name);
@@ -20,8 +11,6 @@ Student::Student(string name, string last_name, IdCard* id)
     Student::setIdCard(id);
     Student::set_average_score(0);
 }
-
-
 
 Student::Student() {}
 // Установка имени студента

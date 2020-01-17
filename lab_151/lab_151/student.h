@@ -10,8 +10,6 @@ class Student
 public:
     // Конструктор класса Student
 
-    //Student(string, string);
-
     Student(string, string, IdCard*);
     
     Student();

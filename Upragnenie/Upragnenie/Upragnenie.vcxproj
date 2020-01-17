@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="OS.h" />
+    <ClInclude Include="time.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Version.h" />
   </ItemGroup>
