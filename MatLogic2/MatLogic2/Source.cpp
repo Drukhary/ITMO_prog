@@ -14,11 +14,12 @@ string Negation(string str, int n)
 {
 	int t = str.find("!");
 	int t1 = t;
+	cout << t1 << endl;
 	if (t >= 0)
 	{
 		str.insert(t + 1, string("("));
 		t1 += 2;
-		while (str[t1 + 1] != '!' && str[t1 + 1] != '&' && str[t1 + 1] != '|' && str[t1 + 1] != '->' && t1+1<str.size()-1)
+		while (str[t1] != '!' && str[t1] != '&' && str[t1] != '|' && str[t1] != '->' && t1 <= str.size()-1)
 		{
 			t1 += 1;
 		}
@@ -27,37 +28,47 @@ string Negation(string str, int n)
 		for (int j = t + 1; j < str.size(); j++)
 		{
 			if (str[j] == '!')
+			{
 				str = Negation(str, str.size());
+				j = str.size();
+			}
 		}
 	}
+	cout << str << endl;
 	str = Conjunction(str, str.size());
+	
 	return str;
 }
 
 string Conjunction(string str, int n)
 {
 	string p1 = "", p2 = "", answ = "", str1, str2;
-	int t = str.find("&"), t1=t,t2=t;
+	int t = str.find("&"), t1 = t, t2 = t;
+	t1 -= 1;
+	t2 += 2;
 	if (t > 0)
 	{
-		while (str[t1 - 1] != '!' && str[t1 - 1] != '&' && str[t1 - 1] != '|' && str[t1 - 1] != '->' && t1 - 1 > 0)// && str[t1 - 1] != ')' && str[t1 - 1] != '(')
+		while (str[t1] != '!' && str[t1] != '&' && str[t1] != '|' && str[t1] != '->' && t1 - 1 >= 0)//str[t1 - 1] != ')' && str[t1 - 1] != '(')
 		{
 			t1 -= 1;
 		}
-		str.insert(t1 + 1, string("("));
-
-		while (str[t2 + 1] != '!' && str[t2 + 1] != '&' && str[t2 + 1] != '|' && str[t2 + 1] != '->' && t2 + 1 < str.size() - 1)// && str[t2 + 1] != ')' && str[t2 + 1] != '(')
+		str.insert(t1, string("("));
+		while (str[t2] != '!' && str[t2] != '&' && str[t2] != '|' && str[t2] != '->' && t2 <= str.size() - 1)// str[t2 + 1] != ')' && str[t2 + 1] != '(')
 		{
 			t2 += 1;
 		}
-		str.insert(t1 - 1, string(")"));
+		str.insert(t2, string(")"));
 
 		for (int j = t + 1; j < str.size(); j++)
 		{
 			if (str[j] == '&')
+			{
 				str = Conjunction(str, str.size());
+				j = str.size();
+			}
 		}
 	}
+	cout << str << endl;
 	str = Disjunction(str, str.size());
 	return str;
 }
@@ -66,27 +77,31 @@ string Disjunction(string str, int n)
 {
 	string p1 = "", p2 = "", answ = "";
 	int t = str.find("|"), t1 = t, t2=t;
+	t1 -= 1;
+	t2 += 2;
 	if (t > 0)
 	{
-		while (str[t1 - 1] != '!' && str[t1 - 1] != '&' && str[t1 - 1] != '|' && str[t1 - 1] != '->' && t1 - 1 > 0)//str[t1 - 1] != ')' && str[t1 - 1] != '(')
+		while (str[t1] != '!' && str[t1] != '&' && str[t1] != '|' && str[t1] != '->' && t1 - 1 >= 0)//str[t1 - 1] != ')' && str[t1 - 1] != '(')
 		{
 			t1 -= 1;
 		}
-		str.insert(t1 + 1, string("("));
-
-		while (str[t2 + 1] != '!' && str[t2 + 1] != '&' && str[t2 + 1] != '|' && str[t2 + 1] != '->' && t2 + 1 < str.size() - 1)// str[t2 + 1] != ')' && str[t2 + 1] != '(')
+		str.insert(t1, string("("));
+		while (str[t2] != '!' && str[t2] != '&' && str[t2] != '|' && str[t2] != '->' && t2 <= str.size() - 1)// str[t2 + 1] != ')' && str[t2 + 1] != '(')
 		{
 			t2 += 1;
 		}
-		str.insert(t1 - 1, string(")"));
-
-		
-		for (int j = t + 1; j < str.size(); j++)
+		str.insert(t2, string(")"));
+		int N = str.size();
+		for (int j = t + 1; j < N; j++)
 		{
 			if (str[j] == '|')
-				str = Disjunction(str, str.size());
+			{
+				str = Disjunction(str, N);
+				j = str.size();
+			}
 		}
 	}
+	cout << str << endl;
 	str = Implication(str, str.size());
 	return str;
 }
@@ -95,25 +110,28 @@ string Implication(string str, int n)
 {
 	string p1 = "", p2 = "", answ = "";
 	int t = str.find("->"), t1=t, t2=t;
-
+	t1 -= 1;
+	t2 += 2;
 	if (t > 0)
 	{
-		while (str[t1 - 1] != '!' && str[t1 - 1] != '&' && str[t1 - 1] != '|' && str[t1 - 1] != '->' && t1 - 1 >0 )//str[t1 - 1] != ')' && str[t1 - 1] != '(')
+		while (str[t1] != '!' && str[t1] != '&' && str[t1] != '|' && str[t1] != '->' && t1 - 1 >= 0)//str[t1 - 1] != ')' && str[t1 - 1] != '(')
 		{
 			t1 -= 1;
 		}
-		str.insert(t1 + 1, string("("));
-
-		while (str[t2 + 1] != '!' && str[t2 + 1] != '&' && str[t2 + 1] != '|' && str[t2 + 1] != '->' && t2 + 1 < str.size() - 1)// str[t2 + 1] != ')' && str[t2 + 1] != '(')
+		str.insert(t1, string("("));
+		while (str[t2] != '!' && str[t2] != '&' && str[t2] != '|' && str[t2] != '->' && t2 <= str.size() - 1)// str[t2 + 1] != ')' && str[t2 + 1] != '(')
 		{
 			t2 += 1;
 		}
-		str.insert(t1 - 1, string(")"));
+		str.insert(t2, string(")"));
 
 		for (int j = t + 1; j < str.size(); j++)
 		{
 			if (str[j] == '->')
+			{
 				str = Implication(str, str.size());
+				j = str.size();
+			}
 		}
 	}
 	return str;
@@ -131,11 +149,12 @@ string Brackets(string str, int n)
 	int t2 = str.find(')');
 	
 	t1 = n - t1 - 1;
-	//cout << n << " " << t2 << endl;
+	cout << t1 << " " << t2 << endl;
 	for (int i = t1 + 1; i < t2; i++)
 	{
 		p1 += str[i];
 	}
+	cout << p1 << endl;
 	p1 = Negation(p1, p1.size());
 
 
