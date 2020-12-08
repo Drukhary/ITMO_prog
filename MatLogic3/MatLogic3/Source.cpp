@@ -113,7 +113,7 @@ string Implication(string str, int n)
 {
 	string p1 = "", p2 = "", answ = "";
 	reverse(str.begin(), str.end());
-	int t = str.find("->");
+	int t = str.find(">-");
 	int t1 = str.find(')');
 	reverse(str.begin(), str.end());
 	int t2 = str.find("(");
